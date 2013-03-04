@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="hittisau.css" type="text/css>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.min.js"></script>
+<script src="hittisau.js"></script>
+<meta charset=utf-8 />
+<title>Hittisau Bierliste</title>
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div ng-app>
+  <h2>Bierliste</h2>
+  <div ng-controller="BeerController">
+    <table>
+      <tr>
+        <th></th>
+        <th ng-cloak ng-repeat="day in days()">
+          {{formatDay(day)}}
+        </th>
+        <th>Gesamt</th>
+      </tr>
+      <tr class="person" ng-cloak ng-repeat="person in people">
+        <td>{{person.name}}</td>
+        <td ng-repeat="day in days()">{{person.numberOfBeers(day)}}</td>
+        <td>{{person.numberOfBeers()}}</td>
+        <td>
+          <button class="btn-primary add-drink" ng-click="addDrink(person)">+</button>
+        </td>
+      </tr>
+      <tr ng-cloak>
+        <td>Gesamt</td>
+        <td ng-repeat="day in days()">
+          {{totalNumberOfBeers(day)}}
+        </td>
+        <td>{{totalNumberOfBeers()}}</td>
+      </tr>
+    </table>
+    <div>
+      <form ng-submit="addName()">
+        <input placeholder="Name" size="10" ng-model="newName" required>
+        <input type="submit" value="Hinzufügen">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
