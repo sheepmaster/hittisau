@@ -1,0 +1,11 @@
+.add-drink {
+  visibility: hidden;
+}
+
+.person:hover .add-drink {
+  visibility: visible;
+}
+
+td, th {
+  text-align: center;
+}
