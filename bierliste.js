@@ -3,7 +3,7 @@ function fetchBeers(person) {
     return;
 
   return person.beers.map(function(date) {
-    return new Beer(date);
+    return new Beer(new Date(date));
   });
 }
 
@@ -74,7 +74,7 @@ function BeerController($scope) {
         days[normalizeDay(beer.date)] = true;
       });
     });
-    return Object.keys(days);
+    return Object.keys(days).sort();
   };
 
   var weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
