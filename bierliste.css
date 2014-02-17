@@ -9,3 +9,7 @@
 td, th {
   text-align: center;
 }
+
+.day {
+  padding: 0 5px;
+}
