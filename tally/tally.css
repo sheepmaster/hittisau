@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'TallyRegular';
+    src: url('tally.eot');
+    src: url('tally.eot') format('embedded-opentype'),
+         url('tally.woff') format('woff'),
+         url('tally.ttf') format('truetype'),
+         url('tally.svg#TallyRegular') format('svg');
+}

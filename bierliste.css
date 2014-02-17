@@ -13,3 +13,8 @@ td, th {
 .day {
   padding: 0 5px;
 }
+
+.tally {
+  font-family: "TallyRegular";
+  font-size: 150%;
+}

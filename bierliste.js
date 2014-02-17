@@ -78,18 +78,31 @@ function BeerController($scope) {
   };
 
   var weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-  
+
   $scope.formatDay = function(day) {
     var date = new Date(Number(day));
     return weekdays[date.getDay()];
   };
-  
+
+  $scope.formatTally = function(number) {
+    var fives = Math.floor(number / 5);
+    var remainder = number % 5;
+    var tally = '';
+    for (var i = 0; i < fives; i++) {
+      tally += '5';
+    }
+    if (remainder > 0) {
+      tally += remainder;
+    }
+    return tally;
+  }
+
   $scope.totalNumberOfBeers = function(day) {
     return $scope.people.reduce(function(number, person) {
       return number + person.numberOfBeers(day);
     }, 0);
   };
-  
+
   $scope.addName = function() {
     $scope.people.push(new Person($scope.newName));
     $scope.newName = '';
